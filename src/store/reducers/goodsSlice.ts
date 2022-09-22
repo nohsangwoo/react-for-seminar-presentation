@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getUserGoods_getUserGoods_goods } from '@/__generated__/getUserGoods'
+import { getUserGoods_getUserGoods_goods } from '@src/__generated__/getUserGoods'
 
 type InitialState = {
   goods: getUserGoods_getUserGoods_goods[]

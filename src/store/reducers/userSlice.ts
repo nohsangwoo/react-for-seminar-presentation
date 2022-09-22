@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { loginEmail_loginEmail_userInfo } from '@/__generated__/loginEmail'
+import { loginEmail_loginEmail_userInfo } from '@src/__generated__/loginEmail'
 
 type InitialState = {
   userInfo?: loginEmail_loginEmail_userInfo | null
