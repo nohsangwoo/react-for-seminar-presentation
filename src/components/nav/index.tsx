@@ -24,9 +24,9 @@ function Nav() {
       </div>
       <div
         style={{ cursor: 'pointer', border: '1px solid black' }}
-        onClick={() => navigate('/rerender')}
+        onClick={() => navigate('/redux/reduxsagaexample')}
       >
-        go rerender
+        3. redux saga basic example
       </div>
     </div>
   )

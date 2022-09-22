@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import counterSlice from 'src/store/reducers/counterSlice'
 import { useAppDispatch, useAppSelector } from 'src/store/store'
 
-const Functional = () => {
+const ReduxSagaExample = () => {
   const count = useAppSelector(state => state.counter.number)
 
   const dispatch = useAppDispatch()
@@ -12,7 +12,7 @@ const Functional = () => {
     dispatch(counterSlice.actions.decrease(payload))
 
   useEffect(() => {
-    console.log('functional2')
+    console.log('ReduxSagaExample')
   })
   return (
     <div>
@@ -23,4 +23,4 @@ const Functional = () => {
   )
 }
 
-export default Functional
+export default ReduxSagaExample
