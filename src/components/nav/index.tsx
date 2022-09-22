@@ -14,7 +14,7 @@ function Nav() {
         style={{ cursor: 'pointer', border: '1px solid black' }}
         onClick={() => navigate('/redux/functional')}
       >
-        1. 함수형에서 redux 사용
+        1. 함수형에서 기본적인 redux 사용 방법
       </div>
       <div
         style={{ cursor: 'pointer', border: '1px solid black' }}

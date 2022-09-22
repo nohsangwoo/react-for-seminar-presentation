@@ -7,15 +7,13 @@ const Functional = () => {
 
   const dispatch = useAppDispatch()
   const increment = (payload: number) =>
-    dispatch(counterSlice.actions.basicIncrease(payload))
+    dispatch(counterSlice.actions.increase(payload))
   const decrement = (payload: number) =>
-    dispatch(counterSlice.actions.basicDecrease(payload))
+    dispatch(counterSlice.actions.decrease(payload))
 
   useEffect(() => {
-    // q: 이것이 increase, decrease를 사용할때마다 실행되게 하려면 어떻게 해야할까?
-    console.log('functional component is rendered')
-  }, [])
-
+    console.log('functional2')
+  })
   return (
     <div>
       <div>count: {count}</div>
