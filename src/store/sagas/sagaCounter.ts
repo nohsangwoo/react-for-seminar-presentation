@@ -29,8 +29,8 @@ export function* increaseSaga() {
 }
 
 export function* decreaseSaga() {
-  yield delay(2000) // 1초를 기다립니다.
-  yield put(counterSlice.actions.decrease) //put은 특정 액션을 디스패치 해줍니다.
+  yield delay(2000) // 2초를 기다립니다.
+  yield put(counterSlice.actions.decrease(4)) //put은 특정 액션을 디스패치 해줍니다.
 }
 
 function* watchIncrease() {
@@ -40,8 +40,9 @@ function* watchIncrease() {
   })
 }
 
+
 export function* counterSaga() {
-  // yield takeEvery(INCREASE_SAGA_ASYNC, INCREASESAGA); // 모든 increase
+  yield takeEvery(counterSlice.actions.decrease, decreaseSaga) // 모든 decreaseSaga
   // yield takeLatest(DECREASE_SAGA_ASYNC, DECREASESAGA);
   yield all([fork(watchIncrease)])
 }

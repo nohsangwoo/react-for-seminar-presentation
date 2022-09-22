@@ -17,6 +17,7 @@ const ReduxSagaExample = () => {
   return (
     <div>
       <div>count: {count}</div>
+      {/* redux saga에서 increase를 바라보고 있다가  increase가 작동하면 redux saga에 의하여 1초뒤 3감소하는 로직*/}
       <button onClick={() => increment(1)}>increase</button>
       <button onClick={() => decrement(1)}>decrease</button>
     </div>
