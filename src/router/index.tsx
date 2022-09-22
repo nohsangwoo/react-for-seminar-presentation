@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Nav from '../components/nav'
 import Home from '../page/home'
 import Rerender from '../page/rerender'
+import { createBrowserHistory } from 'history'
+export const customHistory = createBrowserHistory()
 
 function Router() {
   return (
