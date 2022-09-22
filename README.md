@@ -20,6 +20,8 @@ $ yarn add react-router-dom@6
 $ yarn add @reduxjs/toolkit react-redux redux-persist redux-saga
 ```
 
+1. 함수형에서 hooks사용법
+
 ### react-query (server state)
 
 - ref: https://tanstack.com/query/v4

@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from 'src/store/store'
 
 const Functional = () => {
   const count = useAppSelector(state => state.counter.number)
-
   const dispatch = useAppDispatch()
   const increment = (payload: number) =>
     dispatch(counterSlice.actions.basicIncrease(payload))
