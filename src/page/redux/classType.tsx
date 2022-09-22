@@ -30,10 +30,6 @@ class TestPageClass extends Component<Props> {
     this.state = {}
   }
 
-  UNSAFE_componentWillMount() {
-    console.log('UNSAFE_componentWillMount')
-  }
-
   componentDidMount() {}
 
   componentDidUpdate(prevProps: Props, prevState: State) {}
