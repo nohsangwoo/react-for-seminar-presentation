@@ -4,9 +4,10 @@ import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas'
+import { useDispatch, useSelector } from 'react-redux'
+import type { TypedUseSelectorHook } from 'react-redux'
 
 const sagaMiddleware = createSagaMiddleware()
-
 
 const persistConfig = {
   key: 'root',
@@ -35,6 +36,10 @@ const store = configureStore({
 // for typescript
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
+
+// Use throughout your app instead of plain `useDispatch` and `useSelector`
+export const useAppDispatch: () => AppDispatch = useDispatch
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 sagaMiddleware.run(rootSaga) // 루트 사가를 실행해 줍니다
 
