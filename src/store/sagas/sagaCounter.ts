@@ -39,10 +39,10 @@ function* watchIncrease() {
     yield put(counterSlice.actions.decrease(3))
   })
 }
-
+ 
 
 export function* counterSaga() {
-  yield takeEvery(counterSlice.actions.decrease, decreaseSaga) // 모든 decreaseSaga
+  // yield takeEvery(counterSlice.actions.decrease, decreaseSaga) // 모든 decreaseSaga
   // yield takeLatest(DECREASE_SAGA_ASYNC, DECREASESAGA);
   yield all([fork(watchIncrease)])
 }

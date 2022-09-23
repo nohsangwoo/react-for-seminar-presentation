@@ -41,3 +41,15 @@ $ lodash
 ### tailwind
 
 ### mui, styled components
+
+### react ?
+
+### 왜 react는 mvc가 아닌가?
+
+- ref: https://reactjs.org/blog/2013/06/05/why-react.html
+
+### 페이스북 팀에서 상속을 강력하게 권장하지 않는 이유
+- ref: https://reactjs.org/docs/composition-vs-inheritance.html
+
+
+### why 
