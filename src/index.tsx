@@ -6,15 +6,31 @@ import { persistStore } from 'redux-persist'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import store from './store/store'
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 const persistor = persistStore(store)
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
+    },
+  },
+})
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <App />
-      </PersistGate>
+      <QueryClientProvider client={queryClient}>
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
     </Provider>
   </React.StrictMode>,
 )
