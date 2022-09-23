@@ -6,6 +6,8 @@ import { createBrowserHistory } from 'history'
 import Functional from '../page/redux/functional'
 import ReduxSagaExample from '../page/redux/ReduxSagaExample'
 import ClassType from 'src/page/redux/classType'
+import ReactQueryHook from 'src/page/reactQuery/ReactQueryHook'
+
 export const customHistory = createBrowserHistory()
 
 function Router() {
@@ -18,6 +20,9 @@ function Router() {
           <Route path="functional" element={<Functional />} />
           <Route path="reduxsagaexample" element={<ReduxSagaExample />} />
           <Route path="classType" element={<ClassType />} />
+        </Route>
+        <Route path="/reactquery">
+          <Route path="hook" element={<ReactQueryHook />} />
         </Route>
         <Route path="/rerender" element={<Rerender />} />
       </Routes>

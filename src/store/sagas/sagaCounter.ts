@@ -41,6 +41,9 @@ function* watchIncrease() {
 }
  
 
+// take : 한번만 실행됨
+// takeevery : 계속 반복 실행됨
+// takelatest : 마지막만 실행됨
 export function* counterSaga() {
   // yield takeEvery(counterSlice.actions.decrease, decreaseSaga) // 모든 decreaseSaga
   // yield takeLatest(DECREASE_SAGA_ASYNC, DECREASESAGA);

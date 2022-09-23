@@ -28,6 +28,12 @@ function Nav() {
       >
         3. redux saga basic example
       </div>
+      <div
+        style={{ cursor: 'pointer', border: '1px solid black' }}
+        onClick={() => navigate('/reactquery/hook')}
+      >
+        3. react query hook basic example
+      </div>
     </div>
   )
 }
