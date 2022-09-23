@@ -3,34 +3,54 @@ import axios from 'axios'
 import fetchSlice from 'src/store/reducers/fetchSlice'
 import { useAppDispatch, useAppSelector } from 'src/store/store'
 import _ from 'lodash'
-export const getMyIP = async () => {
-  const { data } = await axios.get('http://example.com/movies.json')
-  return data.ip
+
+// 컴포넌트 단에서 해결하지 않는다면 아래와 같이 어디선가 도메인으로 관리한다.
+// 이전에 보통 이것을 redux-saga로 관리했다.
+export const getFetchTodos = async () => {
+  const { data } = await axios.get('https://jsonplaceholder.typicode.com/todos')
+  console.log('data!!: ', data)
+  return data
 }
 
 const ReactQueryHook = () => {
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(false)
+  const [success, isSuccess] = useState(false)
   const dispatch = useAppDispatch()
-
   const todos = useAppSelector(state => state.fetchs.todos)
 
   useEffect(() => {
-    const fetchMovies = async (): Promise<void> => {
+    const fetchTodos = async (): Promise<void> => {
       try {
         setIsLoading(true)
         const { data } = await axios.get(
           'https://jsonplaceholder.typicode.com/todos',
         )
         dispatch(fetchSlice.actions.setTodos(data))
+        // 1. 에러 핸들링 표시 하려면 아래 내용을 주석 해제
+        // throw new Error()
+        isSuccess(true)
       } catch (e) {
-        console.log(e)
-        alert(e)
+        setError(!!e)
       } finally {
         setIsLoading(false)
       }
     }
-    fetchMovies()
+    fetchTodos()
   }, [dispatch])
+
+  useEffect(() => {
+    if (success) {
+      // logic for success
+      // dispatch... etc
+    }
+  }, [success])
+
+  // 에러 핸들링
+  if (error) {
+    return <div>Error handling</div>
+  }
+
   return (
     <div>
       {isLoading

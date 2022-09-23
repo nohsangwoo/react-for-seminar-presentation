@@ -49,7 +49,9 @@ $ lodash
 - ref: https://reactjs.org/blog/2013/06/05/why-react.html
 
 ### 페이스북 팀에서 상속을 강력하게 권장하지 않는 이유
+
 - ref: https://reactjs.org/docs/composition-vs-inheritance.html
 
+### fake api 사용
 
-### why 
+- ref: https://jsonplaceholder.typicode.com/

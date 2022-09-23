@@ -1,3 +1,4 @@
+import { getFetchTodos } from './../../page/reactQuery/AxiosUsage'
 import {
   delay,
   all,
@@ -36,10 +37,10 @@ export function* decreaseSaga() {
 function* watchIncrease() {
   yield takeEvery(counterSlice.actions.increase, function* () {
     yield delay(1000)
+    yield getFetchTodos()
     yield put(counterSlice.actions.decrease(3))
   })
 }
- 
 
 // take : 한번만 실행됨
 // takeevery : 계속 반복 실행됨
