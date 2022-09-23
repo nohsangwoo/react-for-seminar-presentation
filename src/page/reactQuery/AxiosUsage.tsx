@@ -1,23 +1,27 @@
 import React from 'react'
 import axios from 'axios'
 import { useEffect } from 'react'
+import { useAppDispatch } from 'src/store/store'
 
 export const getMyIP = async () => {
   const { data } = await axios.get('http://example.com/movies.json')
   return data.ip
 }
 
-const ReactQueryHook = () => {
+const AxiosUsage = () => {
+  const dispatch = useAppDispatch()
+
   useEffect(() => {
     const fetchMovies = async () => {
       const { data } = await axios.get(
         'https://jsonplaceholder.typicode.com/todos',
       )
-      console.log('data', data)
+
+      console.log('dasdfsata', data)
     }
     fetchMovies()
   }, [])
-  return <div>ReactQueryHook</div>
+  return <div>AxiosUsage</div>
 }
 
-export default ReactQueryHook
+export default AxiosUsage

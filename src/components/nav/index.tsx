@@ -30,9 +30,15 @@ function Nav() {
       </div>
       <div
         style={{ cursor: 'pointer', border: '1px solid black' }}
+        onClick={() => navigate('/reactquery/axiosusage')}
+      >
+        3. axios basic example
+      </div>
+      <div
+        style={{ cursor: 'pointer', border: '1px solid black' }}
         onClick={() => navigate('/reactquery/hook')}
       >
-        3. react query hook basic example
+        4. react query hook example
       </div>
     </div>
   )
