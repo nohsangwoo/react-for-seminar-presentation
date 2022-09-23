@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import { useEffect } from 'react'
+import fetchSlice, { TodosType } from 'src/store/reducers/fetchSlice'
+import { useAppDispatch, useAppSelector } from 'src/store/store'
 
 export const getMyIP = async () => {
   const { data } = await axios.get('http://example.com/movies.json')
@@ -8,16 +10,22 @@ export const getMyIP = async () => {
 }
 
 const ReactQueryHook = () => {
+  const todos = useAppSelector(state => state.fetchs.todos)
+  // console.log('todos', todos)
+
+  const dispatch = useAppDispatch()
+
   useEffect(() => {
-    const fetchMovies = async () => {
+    const fetchMovies = async (): Promise<void> => {
       const { data } = await axios.get(
         'https://jsonplaceholder.typicode.com/todos',
       )
-      console.log('data', data)
+      console.log(data)
+      dispatch(fetchSlice.actions.setTodos(data))
     }
     fetchMovies()
-  }, [])
-  return <div>ReactQueryHook</div>
+  }, [dispatch])
+  return <div></div>
 }
 
 export default ReactQueryHook
