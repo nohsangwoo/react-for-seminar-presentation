@@ -5,9 +5,9 @@ import Rerender from '../page/rerender'
 import { createBrowserHistory } from 'history'
 import Functional from '../page/redux/functional'
 import ReduxSagaExample from '../page/redux/ReduxSagaExample'
-import ClassType from 'src/page/redux/classType'
-import ReactQueryHook from 'src/page/reactQuery/ReactQueryHook'
-import AxiosUsage from 'src/page/reactQuery/AxiosUsage'
+import ClassType from '@src/page/redux/classType'
+import ReactQueryHook from '@src/page/reactQuery/ReactQueryHook'
+import AxiosUsage from '@src/page/reactQuery/AxiosUsage'
 
 export const customHistory = createBrowserHistory()
 

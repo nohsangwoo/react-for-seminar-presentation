@@ -1,8 +1,7 @@
-import React from 'react'
 import axios from 'axios'
 import { useEffect } from 'react'
-import fetchSlice, { TodosType } from 'src/store/reducers/fetchSlice'
-import { useAppDispatch, useAppSelector } from 'src/store/store'
+import fetchSlice, { TodosType } from '@src/store/reducers/fetchSlice'
+import { useAppDispatch, useAppSelector } from '@src/store/store'
 
 export const getMyIP = async () => {
   const { data } = await axios.get('http://example.com/movies.json')

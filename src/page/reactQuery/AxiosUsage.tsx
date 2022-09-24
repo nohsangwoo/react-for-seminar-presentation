@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import fetchSlice from 'src/store/reducers/fetchSlice'
-import { useAppDispatch, useAppSelector } from 'src/store/store'
+import { useAppDispatch, useAppSelector } from '@src/store/store'
 import _ from 'lodash'
+import { fetchApi } from '@src/components/api/fetchApi'
 
 // 컴포넌트 단에서 해결하지 않는다면 아래와 같이 어디선가 도메인으로 관리한다.
 // 이전에 보통 이것을 redux-saga로 관리했다.
@@ -22,11 +22,7 @@ const ReactQueryHook = () => {
   useEffect(() => {
     const fetchTodos = async (): Promise<void> => {
       try {
-        setIsLoading(true)
-        const { data } = await axios.get(
-          'https://jsonplaceholder.typicode.com/todos',
-        )
-        dispatch(fetchSlice.actions.setTodos(data))
+        fetchApi('https://jsonplaceholder.typicode.com/todos')
         // 1. 에러 핸들링 표시 하려면 아래 내용을 주석 해제
         // throw new Error()
         isSuccess(true)

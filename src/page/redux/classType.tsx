@@ -1,9 +1,8 @@
-import * as React from 'react'
 import { connect } from 'react-redux'
-import withRouteUtils from 'src/HOC/withRouteUtils'
+import withRouteUtils from '@src/HOC/withRouteUtils'
 import { NavigateFunction, Params } from 'react-router-dom'
-import { RootState } from 'src/store/store'
-import counterSlice from 'src/store/reducers/counterSlice'
+import { RootState } from '@src/store/store'
+import counterSlice from '@src/store/reducers/counterSlice'
 import { Component } from 'react'
 
 interface OwnProps {

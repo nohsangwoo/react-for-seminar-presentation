@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import counterSlice from 'src/store/reducers/counterSlice'
-import { useAppDispatch, useAppSelector } from 'src/store/store'
+import counterSlice from '@src/store/reducers/counterSlice'
+import { useAppDispatch, useAppSelector } from '@src/store/store'
 
 const ReduxSagaExample = () => {
   const count = useAppSelector(state => state.counter.number)
