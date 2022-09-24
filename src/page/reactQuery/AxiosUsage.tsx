@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import axios from 'axios'
 import { useAppDispatch, useAppSelector } from '@src/store/store'
 import _ from 'lodash'
@@ -13,13 +13,28 @@ export const getFetchTodos = async () => {
 }
 
 const ReactQueryHook = () => {
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState(false)
-  const [success, isSuccess] = useState(false)
+  const isLoading = useAppSelector(state => state.fetchs.isLoading)
+  const error = useAppSelector(state => state.fetchs.error)
+  const isSuccess = useAppSelector(state => state.fetchs.isSuccess)
   const dispatch = useAppDispatch()
   const todos = useAppSelector(state => state.fetchs.todos)
 
   useEffect(() => {
+    fetchApi('https://jsonplaceholder.typicode.com/todos')
+    const fetchTodos = async (): Promise<void> => {}
+    fetchTodos()
+  }, [dispatch])
+
+  useEffect(() => {
+    if (isSuccess) {
+      console.log('펫칭 성공!! ')
+      // caching...
+      // logic for isSuccess
+      // dispatch... etc
+    }
+
+    // 원래는 아래와 같이 사용했었다.
+    /* 
     const fetchTodos = async (): Promise<void> => {
       try {
         fetchApi('https://jsonplaceholder.typicode.com/todos')
@@ -32,15 +47,8 @@ const ReactQueryHook = () => {
         setIsLoading(false)
       }
     }
-    fetchTodos()
-  }, [dispatch])
-
-  useEffect(() => {
-    if (success) {
-      // logic for success
-      // dispatch... etc
-    }
-  }, [success])
+    fetchTodos() */
+  }, [isSuccess])
 
   // 에러 핸들링
   if (error) {

@@ -6,6 +6,7 @@ import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas'
 import { useDispatch, useSelector } from 'react-redux'
 import type { TypedUseSelectorHook } from 'react-redux'
+import arrowFunctionForm from './middlewares/arrowFunctionForm'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -28,7 +29,9 @@ const store = configureStore({
       // serializableCheck: {
       //   ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       // }
-    }).concat(sagaMiddleware),
+    })
+      .concat(sagaMiddleware)
+      .concat(arrowFunctionForm),
   // .concat(logger),
   devTools: process.env.NODE_ENV === 'development',
 })

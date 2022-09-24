@@ -2,8 +2,14 @@ import fetchSlice from '@src/store/reducers/fetchSlice'
 import axios from 'axios'
 import ReduxStore from '@src/store/store'
 
-export const fetchApi = async <T extends string>(url: T): Promise<void> => {
+export const fetchApi = async <T extends string>(
+  url: T,
+  where: string = 'unknown component',
+): Promise<void> => {
   const { dispatch, getState } = ReduxStore
+
+  dispatch(fetchSlice.actions.setWhere(where))
+
   try {
     dispatch(fetchSlice.actions.setIsLoading(false)) // 로딩
     dispatch(fetchSlice.actions.setIsSuccess(false)) // 펫칭 성공 여부
