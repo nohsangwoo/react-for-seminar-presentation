@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useAppDispatch, useAppSelector } from '@src/store/store'
 import _ from 'lodash'
-import { fetchApi } from '@src/components/api/fetchApi'
+import { fetchApi } from '@src/store/sagas/api/fetchApi'
 
 // 컴포넌트 단에서 해결하지 않는다면 아래와 같이 어디선가 도메인으로 관리한다.
 // 이전에 보통 이것을 redux-saga로 관리했다.

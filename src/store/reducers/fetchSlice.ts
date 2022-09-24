@@ -8,22 +8,43 @@ export type TodosType = {
   title: string
   userId: number
 }[]
+
 type InitialState = {
   todos: TodosType
+  error: any
+  isSuccess: boolean
+  isLoading: boolean
+  where: string
 }
 
 const initialState: InitialState = {
   todos: [],
+  error: undefined,
+  isSuccess: false,
+  isLoading: false,
+  where: '',
 }
 
 const fetchSlice = createSlice({
   name: 'fetch',
   initialState,
   reducers: {
+    clear: () => initialState,
     setTodos(state, action: { payload: TodosType }) {
       state.todos = action.payload
     },
-    clear: () => initialState,
+    setError(state, action) {
+      state.error = action.payload
+    },
+    setIsSuccess(state, action) {
+      state.isSuccess = action.payload
+    },
+    setIsLoading(state, action) {
+      state.isLoading = action.payload
+    },
+    setWhere(state, action) {
+      state.where = action.payload
+    },
   },
   extraReducers: {},
 })
