@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Nav from '../components/nav'
 import Home from '../page/home'
-import Rerender from '../page/rerender'
 import { createBrowserHistory } from 'history'
 import Functional from '../page/redux/functional'
 import ReduxSagaExample from '../page/redux/ReduxSagaExample'
 import ClassType from '@src/page/redux/classType'
 import ReactQueryHook from '@src/page/reactQuery/ReactQueryHook'
 import AxiosUsage from '@src/page/reactQuery/AxiosUsage'
+import Issue1 from '@src/page/rerender/issue1'
 
 export const customHistory = createBrowserHistory()
 
@@ -26,7 +26,9 @@ function Router() {
           <Route path="axiosusage" element={<AxiosUsage />} />
           <Route path="hook" element={<ReactQueryHook />} />
         </Route>
-        <Route path="/rerender" element={<Rerender />} />
+        <Route path="/rerender">
+          <Route path="issue1" element={<Issue1 />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )

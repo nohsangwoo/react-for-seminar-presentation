@@ -43,7 +43,7 @@ function Nav() {
       </div>
       <div
         style={{ cursor: 'pointer', border: '1px solid black' }}
-        onClick={() => navigate('/rerender')}
+        onClick={() => navigate('/rerender/issue1')}
       >
         6. rerender issue example
       </div>
