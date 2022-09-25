@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react'
-import { TodosType } from './queries'
+import { TodosType } from './useQueries'
 
 interface Props {
   todosData: TodosType

@@ -28,6 +28,7 @@ const UseCallbackIssue = () => {
       <List createNumberList={createNumberList} />
       <div>toggle2 state : {toggle}</div>
       <button onClick={onHandleToggle}>toggle</button>
+      useCallback을 사용하세요.
     </div>
   )
 }

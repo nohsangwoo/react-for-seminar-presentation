@@ -16,7 +16,7 @@ export const getTodos = async (index: number): Promise<TodosType> => {
   return data
 }
 
-export const useFetchTodos = () => {
+export const useTodosQuery = () => {
   const [index, setIndex] = useState(1)
   const [iIndex, setIindex] = useState(1)
 
@@ -70,3 +70,7 @@ export const useFetchTodos = () => {
     onChangeNumber,
   }
 }
+
+// export const useUserQuery...
+// export const useKeyQuery...
+// export const useMoviesQuery...

@@ -1,4 +1,4 @@
-import { useFetchTodos } from './queries'
+import { useTodosQuery } from './useQueries'
 import Todos from './Todos'
 const ReactQueryHookWithQueries = () => {
   const {
@@ -9,7 +9,14 @@ const ReactQueryHookWithQueries = () => {
     isSuccessTodos,
     iIndex,
     onChangeNumber,
-  } = useFetchTodos()
+  } = useTodosQuery()
+
+  // useQuery가 여러개일땐? 그냥 여러개 쓰면됨
+  /* 
+  const {...} = useUserQuery()
+  const {...} = useKeyQuery()
+  const {...} = useMoviesQuery() 
+  */
 
   return (
     <div>
@@ -17,15 +24,13 @@ const ReactQueryHookWithQueries = () => {
       <button onClick={() => refetchTodos()}>refetch button</button>
       <div>
         {isLoadingTodos ? (
-          <div>loading...</div>
+          <div>loading...</div> // loading 핸들링
         ) : isErrorTodos ? (
-          <div>error</div>
+          <div>error</div> // 에러 핸들링
         ) : (
           todosData &&
           isSuccessTodos &&
-          !isLoadingTodos && (
-            <Todos todosData={todosData}/>
-          )
+          !isLoadingTodos && <Todos todosData={todosData} />
         )}
       </div>
     </div>
