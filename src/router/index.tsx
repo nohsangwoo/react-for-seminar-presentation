@@ -9,6 +9,7 @@ import ReactQueryHook from '@src/page/reactQuery/ReactQueryHook'
 import AxiosUsage from '@src/page/reactQuery/AxiosUsage'
 import Usecallback from '@src/page/rerender/useCallbackIssue'
 import Whyneedcodesplitting from '@src/page/rerender/WhyNeedCodeSplitting'
+import ReactQueryHookWithQueries from '@src/page/reactQuery/ReactQueryHookWithQueries'
 
 export const customHistory = createBrowserHistory()
 
@@ -26,6 +27,10 @@ function Router() {
         <Route path="/reactquery">
           <Route path="axiosusage" element={<AxiosUsage />} />
           <Route path="hook" element={<ReactQueryHook />} />
+          <Route
+            path="hookwithqueries"
+            element={<ReactQueryHookWithQueries />}
+          />
         </Route>
         <Route path="/rerender">
           <Route
