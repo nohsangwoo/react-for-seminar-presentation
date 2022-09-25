@@ -11,6 +11,7 @@ const NavList = () => {
     ['axios basic example', '/reactquery/axiosusage'],
     ['redux saga basic example', '/redux/reduxsagaexample'],
     ['react query hook example', '/reactquery/hook'],
+    ['react query hook with queries example', '/reactquery/hookwithqueries'],
     ['why need code splitting', '/rerender/whyneedcodesplitting'],
     ['rerender issue example with useCallback', '/rerender/usecallback'],
   ]
@@ -30,6 +31,7 @@ const NavList = () => {
       {createNavList(navs).map((data, index) => {
         return (
           <div
+            key={index}
             style={{ cursor: 'pointer', border: '1px solid black' }}
             onClick={() => navigate(data.path)}
           >
