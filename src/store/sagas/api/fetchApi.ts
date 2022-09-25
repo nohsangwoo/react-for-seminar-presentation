@@ -16,7 +16,7 @@ export const fetchApi = async <T extends string>(
   }
 
   try {
-    dispatch(fetchSlice.actions.setIsLoading(false)) // 로딩
+    dispatch(fetchSlice.actions.setIsLoading(true)) // 로딩
     dispatch(fetchSlice.actions.setIsSuccess(false)) // 펫칭 성공 여부
     const { data } = await axios.get(url) //  fetching
     dispatch(fetchSlice.actions.setTodos(data)) // 데이터 가져옴
@@ -28,6 +28,6 @@ export const fetchApi = async <T extends string>(
 
     dispatch(fetchSlice.actions.setIsSuccess(false)) // 펫칭 실패...
   } finally {
-    dispatch(fetchSlice.actions.setIsLoading(true)) // 펫칭 성공을 했던 실패를 했던 로딩 끝
+    dispatch(fetchSlice.actions.setIsLoading(false)) // 펫칭 성공을 했던 실패를 했던 로딩 끝
   }
 }

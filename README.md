@@ -18,6 +18,8 @@ $ yarn add @reduxjs/toolkit react-redux redux-persist redux-saga
 
 - ref: https://tanstack.com/query/v4
 
+-ref: https://tanstack.com/query/v4/docs/reference/useQuery?from=reactQueryV3&original=https://react-query-v3.tanstack.com/reference/useQuery
+
 ```
 $ yarn add @tanstack/react-query
 ```
@@ -40,22 +42,34 @@ $ lodash
 
 ### mui, styled components
 
-### react ?
-
-### 왜 react는 mvc?
+### react는 mvc?
 
 - ref: https://reactjs.org/blog/2013/06/05/why-react.html
 
 ### 페이스북 팀에서 상속을 강력하게 권장하지 않는 이유
 
 - ref: https://reactjs.org/docs/composition-vs-inheritance.html
-  일반적인 상속은 react의 적이다. 이것을 react의 철학에 맞춰 해석할 필요가 있다.
+  일반적인 상속은 react의 적이다. 이것을 react의 철학에 맞춰 해석할 필요가 있다.(hoc, children)
+
+  ### HOC 설명
+
+- ref: https://ko.reactjs.org/docs/higher-order-components.html
 
 ### atomic design?
 
 - ref: https://bradfrost.com/blog/post/atomic-web-design/
 
 하지만 위 내용은 디자인을 중점으로 둔 개념이고 react에선 이것을 해석하여 기능을 중점으로 쪼갠다.
+
+이로인해 react 세계관에선 모듈화가 중요하고 번들링 퍼포먼스가 중요하다.
+시대의 니즈로 인하여
+
+- vite
+  ref: https://vitejs-kr.github.io/guide/
+
+- nextjs swc bundler
+  ref: https://nextjs.org/docs/advanced-features/compiler
+  (rust 언어로 탈 babel화)
 
 ### react에서 solid 원칙 적용하기
 
