@@ -76,3 +76,7 @@ $ lodash
 - ref: https://medium.com/dailyjs/applying-solid-principles-in-react-14905d9c5377
 
 ### rerender issue
+
+### react set interval(with closer)
+
+- ref: https://overreacted.io/making-setinterval-declarative-with-react-hooks/
