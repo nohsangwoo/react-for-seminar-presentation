@@ -4,13 +4,21 @@ import counterSlice, {
   notiAndNumSelector,
 } from '@src/store/reducers/counterSlice'
 import { useAppDispatch, useAppSelector } from '@src/store/store'
+import { shallowEqual } from 'react-redux'
 
 const Functional = () => {
+  // 1. 기본적인 사용방법
   const count = useAppSelector(state => state.counter.number)
-  const countNum = useAppSelector(countNumSelector)
-  const { noti, num } = useAppSelector(notiAndNumSelector)
 
+  // 2. 의존성 역전을 통한 selector 사용방법
+  const countNum = useAppSelector(countNumSelector)
+
+  // 3. reselect를 통한 selector 사용방법
+  const { noti, num } = useAppSelector(notiAndNumSelector, shallowEqual)
+
+  // 기본적인 dispatch 사용방법
   const dispatch = useAppDispatch()
+
   const increment = (payload: number) =>
     dispatch(counterSlice.actions.basicIncrease(payload))
   const decrement = (payload: number) =>
@@ -23,8 +31,19 @@ const Functional = () => {
 
   return (
     <div>
-      <div>count: {count}</div>
-      <div>countNum: {countNum}</div>
+      <div>
+        <h2>basic</h2>
+        <div>count: {count}</div>
+      </div>
+      <div>
+        <h2>with createSelector</h2>
+        <div>countNum: {countNum}</div>
+      </div>
+      <div>
+        <h2>with createDraftSafeSelector</h2>
+        <div>noti: {noti}</div>
+        <div>num: {num}</div>
+      </div>
       <button onClick={() => increment(1)}>increase</button>
       <button onClick={() => decrement(1)}>decrease</button>
     </div>

@@ -1,4 +1,9 @@
-import { createDraftSafeSelector, createSlice } from '@reduxjs/toolkit'
+import ReduxStore from '@src/store/store'
+import {
+  createDraftSafeSelector,
+  createSelector,
+  createSlice,
+} from '@reduxjs/toolkit'
 import { increaseAsync, decreaseAsync } from '../actions/counterActions'
 import { RootState } from '../store'
 type InitialState = {
@@ -64,13 +69,25 @@ export default counterSlice
 const numSelect = (state: RootState) => state.counter.number
 const notiCountSelect = (state: RootState) => state.counter.noticount
 
-export const countNumSelector = createDraftSafeSelector(
-  numSelect,
-  state => state,
-)
+export const countNumSelector = createSelector(numSelect, state => state)
 
 export const notiAndNumSelector = createDraftSafeSelector(
   notiCountSelect,
   numSelect,
   (notiCount, num) => ({ noti: notiCount, num: num }),
 )
+
+//
+// export const notiAndNumSelector2 = createSelector(
+//   notiCountSelect,
+//   numSelect,
+//   (notiCount, num) => ({ noti: notiCount, num: num }),
+//   {
+//     // New in 4.1: Pass options through to the built-in `defaultMemoize` function
+//     memoizeOptions: {
+//       equalityCheck: (a, b) => a === b,
+//       maxSize: 10,
+//       resultEqualityCheck: shallowEqual,
+//     }, // from reselector
+//   },
+// )
