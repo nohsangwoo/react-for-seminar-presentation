@@ -41,6 +41,12 @@ function Nav() {
       >
         5. react query hook example
       </div>
+      <div
+        style={{ cursor: 'pointer', border: '1px solid black' }}
+        onClick={() => navigate('/rerender')}
+      >
+        6. rerender issue example
+      </div>
     </div>
   )
 }
