@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const NavList = () => {
@@ -26,13 +26,35 @@ const NavList = () => {
     return convertToObj
   }
 
+  type styleType = {
+    navContainerStyle: CSSProperties
+    navItemStyle: CSSProperties
+  }
+  const style: styleType = {
+    navContainerStyle: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      border: '1px solid black',
+      width: '50%',
+    },
+    navItemStyle: {
+      cursor: 'pointer',
+      border: '1px solid black',
+      margin: '10px',
+      padding: '20px',
+      borderRadius: '10px',
+    },
+  }
+
   return (
-    <div>
+    <div style={style.navContainerStyle}>
       {createNavList(navs).map((data, index) => {
         return (
           <div
             key={index}
-            style={{ cursor: 'pointer', border: '1px solid black' }}
+            style={style.navItemStyle}
             onClick={() => navigate(data.path)}
           >
             {data.title}
