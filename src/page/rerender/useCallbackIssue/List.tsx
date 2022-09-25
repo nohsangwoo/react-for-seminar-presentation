@@ -4,6 +4,18 @@ interface Props {
   createNumberList: () => number[]
 }
 const List = ({ createNumberList }: Props) => {
+  const styles = {
+    wrapper: {
+      color: 'white',
+      background: 'teal',
+      padding: '.375rem .75rem',
+      border: '1px solid teal',
+      borderRadius: '.25rem',
+      fontSize: '1rem',
+      lineHeight: 1.5,
+    },
+  }
+
   const [item, setItems] = useState<number[]>([])
   const [number, setNumber] = useState(0)
 
@@ -14,13 +26,13 @@ const List = ({ createNumberList }: Props) => {
   }, [createNumberList])
   return (
     <div>
-      <div style={{ border: '1px solid balck' }}>
+      <div style={styles.wrapper}>
         <h1>numList</h1>
         {item.map((num, index) => {
           return <div key={index}>{num}</div>
         })}
       </div>
-      <div style={{ border: '1px solid balck' }}>
+      <div style={styles.wrapper}>
         <h1>number</h1>
         {number}
       </div>

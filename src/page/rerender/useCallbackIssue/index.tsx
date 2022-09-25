@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 import { useState } from 'react'
 import List from './List'
 
-const Issue1 = () => {
+const UseCallbackIssue = () => {
   const [number, setNumber] = useState(0)
   const [toggle, setToggle] = useState(false)
 
@@ -15,6 +15,8 @@ const Issue1 = () => {
   //   const createNumberList = useCallback(() => {
   //     return [number, number + 1, number + 2]
   //   }, [number])
+
+  // 습관적 useCallback 증후군에 걸려야 한다.
 
   const onHandleToggle = () => {
     setToggle(prev => !prev)
@@ -30,4 +32,4 @@ const Issue1 = () => {
   )
 }
 
-export default Issue1
+export default UseCallbackIssue

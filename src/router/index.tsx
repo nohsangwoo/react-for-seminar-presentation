@@ -7,7 +7,8 @@ import ReduxSagaExample from '../page/redux/ReduxSagaExample'
 import ClassType from '@src/page/redux/classType'
 import ReactQueryHook from '@src/page/reactQuery/ReactQueryHook'
 import AxiosUsage from '@src/page/reactQuery/AxiosUsage'
-import Issue1 from '@src/page/rerender/issue1'
+import Usecallback from '@src/page/rerender/useCallbackIssue'
+import Whyneedcodesplitting from '@src/page/rerender/WhyNeedCodeSplitting'
 
 export const customHistory = createBrowserHistory()
 
@@ -27,7 +28,11 @@ function Router() {
           <Route path="hook" element={<ReactQueryHook />} />
         </Route>
         <Route path="/rerender">
-          <Route path="issue1" element={<Issue1 />} />
+          <Route
+            path="whyneedcodesplitting"
+            element={<Whyneedcodesplitting />}
+          />
+          <Route path="usecallback" element={<Usecallback />} />
         </Route>
       </Routes>
     </BrowserRouter>

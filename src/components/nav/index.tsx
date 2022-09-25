@@ -43,9 +43,15 @@ function Nav() {
       </div>
       <div
         style={{ cursor: 'pointer', border: '1px solid black' }}
-        onClick={() => navigate('/rerender/issue1')}
+        onClick={() => navigate('/rerender/whyneedcodesplitting')}
       >
-        6. rerender issue example
+        6. why need code splitting
+      </div>
+      <div
+        style={{ cursor: 'pointer', border: '1px solid black' }}
+        onClick={() => navigate('/rerender/usecallback')}
+      >
+        7. rerender issue example with useCallback
       </div>
     </div>
   )
