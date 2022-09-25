@@ -61,8 +61,8 @@ function App() {
     </div>
   )
 }
- */
 //
 queryClient.invalidateQueries(['todos']) // 해당 키를 가진 모든 쿼리는 stale 취급되며 ,모든 todos 쿼리를 백그라운드에서 다시 refetch
+ */
 
 export default {}
