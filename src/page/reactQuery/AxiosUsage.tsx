@@ -20,7 +20,7 @@ const ReactQueryHook = () => {
   const todos = useAppSelector(state => state.fetchs.todos)
 
   useEffect(() => {
-    fetchApi('https://jsonplaceholder.typicode.com/todos')
+    fetchApi('https://jsonplaceholder.typicode.com/todos', 'AxiosUasage.tsx')
     const fetchTodos = async (): Promise<void> => {}
     fetchTodos()
   }, [dispatch])

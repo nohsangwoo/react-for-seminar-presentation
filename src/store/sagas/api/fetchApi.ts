@@ -4,11 +4,16 @@ import ReduxStore from '@src/store/store'
 
 export const fetchApi = async <T extends string>(
   url: T,
-  where: string = 'unknown component',
+  where: string | null = null,
 ): Promise<void> => {
   const { dispatch, getState } = ReduxStore
 
-  dispatch(fetchSlice.actions.setWhere(where))
+  if (!!where) {
+    dispatch(fetchSlice.actions.setWhere(where))
+    console.log(`${where} 에서 호출 됨`)
+  } else {
+    console.log('호출 위치를 알 수 없습니다.')
+  }
 
   try {
     dispatch(fetchSlice.actions.setIsLoading(false)) // 로딩

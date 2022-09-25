@@ -1,9 +1,15 @@
 import { useEffect } from 'react'
-import counterSlice from '@src/store/reducers/counterSlice'
+import counterSlice, {
+  countNumSelector,
+  notiAndNumSelector,
+} from '@src/store/reducers/counterSlice'
 import { useAppDispatch, useAppSelector } from '@src/store/store'
 
 const Functional = () => {
   const count = useAppSelector(state => state.counter.number)
+  const countNum = useAppSelector(countNumSelector)
+  const { noti, num } = useAppSelector(notiAndNumSelector)
+
   const dispatch = useAppDispatch()
   const increment = (payload: number) =>
     dispatch(counterSlice.actions.basicIncrease(payload))
@@ -18,6 +24,7 @@ const Functional = () => {
   return (
     <div>
       <div>count: {count}</div>
+      <div>countNum: {countNum}</div>
       <button onClick={() => increment(1)}>increase</button>
       <button onClick={() => decrement(1)}>decrease</button>
     </div>

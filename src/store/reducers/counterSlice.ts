@@ -1,5 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createDraftSafeSelector, createSlice } from '@reduxjs/toolkit'
 import { increaseAsync, decreaseAsync } from '../actions/counterActions'
+import { RootState } from '../store'
 type InitialState = {
   number: number
   noticount: number
@@ -59,3 +60,17 @@ const counterSlice = createSlice({
 })
 
 export default counterSlice
+
+const numSelect = (state: RootState) => state.counter.number
+const notiCountSelect = (state: RootState) => state.counter.noticount
+
+export const countNumSelector = createDraftSafeSelector(
+  numSelect,
+  state => state,
+)
+
+export const notiAndNumSelector = createDraftSafeSelector(
+  notiCountSelect,
+  numSelect,
+  (notiCount, num) => ({ noti: notiCount, num: num }),
+)
