@@ -16,6 +16,8 @@ $ yarn add @reduxjs/toolkit react-redux redux-persist redux-saga
 
 ### react-query (server state)
 
+- server state? : api response의 캐싱된 데이터를 의미한다.
+
 - ref: https://tanstack.com/query/v4
 
 -ref: https://tanstack.com/query/v4/docs/reference/useQuery?from=reactQueryV3&original=https://react-query-v3.tanstack.com/reference/useQuery

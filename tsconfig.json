@@ -18,5 +18,6 @@
     "jsx": "react-jsx",
     "skipDefaultLibCheck": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["src/page/reactQuery/Mutation.tsx"]
 }
