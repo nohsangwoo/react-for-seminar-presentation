@@ -15,7 +15,7 @@ const Functional = () => {
   const count = useAppSelector(state => state.counter.number)
 
   // 2. 의존성을 해결해주기 위한 createSelector 사용방법
-  // redux-toolkit에서 제안하는 일종의 의존성 역전 방법
+  // redux-toolkit에서 제안하는 일종의 의존관계 역전 원칙 적용방법(DIP)
   const countNum = useAppSelector(countNumSelector)
   // 만약 ..store에서 끌어오는 값이 많다면?
   // const countNum2 = useAppSelector(countNumSelector)

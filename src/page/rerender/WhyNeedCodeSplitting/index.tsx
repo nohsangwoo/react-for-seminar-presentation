@@ -7,6 +7,7 @@ const Whyneedcodesplitting = () => {
   const [toggle, setToggle] = useState(false)
 
   //  문제점 : createNumberList 함수가 매번 새로 생성되어서 List 컴포넌트가 불필요하게 렌더링 된다.
+  // 따라서 useCallback으로 감싸준다.
   const createNumberList = useCallback(() => {
     return [number, number + 1, number + 2]
   }, [number])

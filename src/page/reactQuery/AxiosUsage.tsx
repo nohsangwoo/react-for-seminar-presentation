@@ -13,6 +13,7 @@ export const getFetchTodos = async () => {
 }
 
 const ReactQueryHook = () => {
+  // 필요한 기능을 일일히 다 구현하여야 한다...
   const isLoading = useAppSelector(state => state.fetchs.isLoading)
   const error = useAppSelector(state => state.fetchs.error)
   const isSuccess = useAppSelector(state => state.fetchs.isSuccess)
@@ -21,6 +22,8 @@ const ReactQueryHook = () => {
 
   useEffect(() => {
     // type interface 설명
+    // server state설명
+    // 결국 server state를 가져와서 redux state에 저장하는 것이다.
     fetchApi('https://jsonplaceholder.typicode.com/todos', 'AxiosUasage.tsx')
   }, [dispatch])
 
