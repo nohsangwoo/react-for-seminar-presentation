@@ -2,6 +2,12 @@ import fetchSlice from '@src/store/reducers/fetchSlice'
 import axios from 'axios'
 import ReduxStore from '@src/store/store'
 
+/**
+ * 로그를 남기는 fetching api입니다. 
+ * @param url 펫칭할 url
+ * @param where 팻칭이 실행되는 컴포넌트의 이름
+ * @param return return 값은 없음.
+ */
 export const fetchApi = async <T extends string>(
   url: T,
   where: string | null = null,

@@ -55,7 +55,8 @@ $ lodash
 
   ### HOC 설명
 
-- ref: https://ko.reactjs.org/docs/higher-order-components.html
+- ref: https://reactjs.org/docs/higher-order-components.html
+- ref: https://ko.reactjs.org/docs/composition-vs-inheritance.html (번역)
 
 ### atomic design?
 

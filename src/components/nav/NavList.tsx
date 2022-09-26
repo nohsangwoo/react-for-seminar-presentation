@@ -12,6 +12,7 @@ const NavList = () => {
     ['redux saga basic example', '/redux/reduxsagaexample'],
     ['react query hook example', '/reactquery/hook'],
     ['react query hook with queries example', '/reactquery/hookwithqueries'],
+    ['react query mutation example', '/reactquery/reactquerymutation'],
     ['why need code splitting', '/rerender/whyneedcodesplitting'],
     ['rerender issue example with useCallback', '/rerender/usecallback'],
   ]

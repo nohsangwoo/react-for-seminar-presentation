@@ -3,15 +3,28 @@ import counterSlice, {
   countNumSelector,
   notiAndNumSelector,
 } from '@src/store/reducers/counterSlice'
-import { useAppDispatch, useAppSelector } from '@src/store/store'
-import { shallowEqual } from 'react-redux'
+import { RootState, useAppDispatch, useAppSelector } from '@src/store/store'
+import { shallowEqual, useSelector } from 'react-redux'
 
 const Functional = () => {
   // 1. 기본적인 사용방법
+  // const count = useSelector((state: RootState) => state.counter.number)
+  // # 하지만 state의 type을 매번 적는게 귀찮다.
+  // # 그래서 아래와 같이 type을 지정해주면 된다.
+  // 하지만 유연하지 못한 방법이다.
   const count = useAppSelector(state => state.counter.number)
 
-  // 2. 의존성 역전을 통한 selector 사용방법
+  // 2. 의존성을 해결해주기 위한 createSelector 사용방법
+  // redux-toolkit에서 제안하는 일종의 의존성 역전 방법
   const countNum = useAppSelector(countNumSelector)
+  // 만약 ..store에서 끌어오는 값이 많다면?
+  // const countNum2 = useAppSelector(countNumSelector)
+  // const countNum3 = useAppSelector(countNumSelector)
+  // const countNum4 = useAppSelector(countNumSelector)
+  // ...
+
+  // pre 3. 서로에게 영향을 주며 재 할당되는 경우
+  const { number, noticount } = useAppSelector(state => state.counter)
 
   // 3. reselect를 통한 selector 사용방법
   const { noti, num } = useAppSelector(notiAndNumSelector, shallowEqual)
@@ -19,9 +32,9 @@ const Functional = () => {
   // 기본적인 dispatch 사용방법
   const dispatch = useAppDispatch()
 
-  const increment = (payload: number) =>
+  const increaseNumber = (payload: number) =>
     dispatch(counterSlice.actions.basicIncrease(payload))
-  const decrement = (payload: number) =>
+  const decreaseNumber = (payload: number) =>
     dispatch(counterSlice.actions.basicDecrease(payload))
 
   useEffect(() => {
@@ -44,8 +57,8 @@ const Functional = () => {
         <div>noti: {noti}</div>
         <div>num: {num}</div>
       </div>
-      <button onClick={() => increment(1)}>increase</button>
-      <button onClick={() => decrement(1)}>decrease</button>
+      <button onClick={() => increaseNumber(1)}>increase</button>
+      <button onClick={() => decreaseNumber(1)}>decrease</button>
     </div>
   )
 }

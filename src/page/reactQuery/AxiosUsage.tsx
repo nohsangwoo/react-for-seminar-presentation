@@ -20,12 +20,20 @@ const ReactQueryHook = () => {
   const todos = useAppSelector(state => state.fetchs.todos)
 
   useEffect(() => {
+    // type interface 설명
     fetchApi('https://jsonplaceholder.typicode.com/todos', 'AxiosUasage.tsx')
-    const fetchTodos = async (): Promise<void> => {}
-    fetchTodos()
   }, [dispatch])
 
   useEffect(() => {
+    // 처음에는 아래와 같이 사용했었다.
+    /* try {
+      getFetchTodos()
+
+      // on Success progress
+    } catch (e) {
+      // error handling...
+    } */
+
     if (isSuccess) {
       console.log('펫칭 성공!! ')
       // caching...

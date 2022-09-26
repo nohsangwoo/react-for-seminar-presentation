@@ -5,6 +5,8 @@ import { RootState } from '@src/store/store'
 import counterSlice from '@src/store/reducers/counterSlice'
 import { Component } from 'react'
 
+// 여기에선 class 형식의 react component에서 redux를 사용하는 방법을 보여준다.
+// 또한 hoc의 개념을 알아본다.
 interface OwnProps {
   params?: Readonly<Params<string>>
   location?: Location
@@ -23,6 +25,7 @@ interface DispatchProps {
 interface State {}
 
 type Props = OwnProps & StateProps & DispatchProps
+
 class TestPageClass extends Component<Props> {
   constructor(props: Props) {
     super(props)

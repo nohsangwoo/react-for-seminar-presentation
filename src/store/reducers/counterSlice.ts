@@ -52,6 +52,7 @@ const counterSlice = createSlice({
       .addCase(decreaseAsync.fulfilled, (state, action) => {})
       .addCase(decreaseAsync.rejected, (state, action) => {})
 
+      // 일종의 스위치 미들웨어
       .addMatcher(
         action => {
           return action.type.includes('/pending')
@@ -60,7 +61,7 @@ const counterSlice = createSlice({
           console.log('add matcher activate on pending function')
         },
       )
-
+      // and provide a default case if no other handlers matched
       .addDefaultCase((state, action) => {}),
 })
 
