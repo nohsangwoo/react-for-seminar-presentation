@@ -2,6 +2,11 @@ import { queryClient } from '@src/index'
 import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
 
+type QueryArgs = {
+  title: string
+  body: string
+  userId: number
+}
 export default function ReactQueryMutation() {
   const {
     data, // The data returned from the mutation
@@ -15,7 +20,7 @@ export default function ReactQueryMutation() {
     mutateAsync, // The async version of the mutate function
     reset, // A function to reset the mutation state to its initial value
     status, // The current status of the mutation
-  } = useMutation(
+  } = useMutation<QueryArgs>(
     () => {
       return axios.post('https://jsonplaceholder.typicode.com/posts', {
         data: {
@@ -56,8 +61,6 @@ export default function ReactQueryMutation() {
         'Adding todo...'
       ) : (
         <>
-          {/* {isError ? <div>An error occurred: {error.message}</div> : null} */}
-
           {isSuccess ? <div>Todo added!</div> : null}
 
           <button

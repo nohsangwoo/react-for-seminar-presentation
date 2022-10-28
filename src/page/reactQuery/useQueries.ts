@@ -26,6 +26,7 @@ export const useTodosQuery = () => {
     refetch: refetchTodos,
     isError: isErrorTodos,
     isSuccess: isSuccessTodos,
+    isFetching: isFetchingTodos,
   } = useQuery<TodosType>(['todos', index], () => getTodos(index), {
     cacheTime: 1000 * 60 * 60 * 24, // 캐시 유지 시간(기본적으로 5분)
     retry: 3, // retry 횟수(기본적으로 3회 시도함)
@@ -66,6 +67,7 @@ export const useTodosQuery = () => {
     refetchTodos,
     isErrorTodos,
     isSuccessTodos,
+    isFetchingTodos,
     iIndex,
     onChangeNumber,
   }

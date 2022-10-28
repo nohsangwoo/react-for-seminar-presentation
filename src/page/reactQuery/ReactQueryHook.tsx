@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 import { ChangeEvent, useCallback, useEffect, useRef } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
@@ -38,7 +38,7 @@ const ReactQueryHook = () => {
     isRefetching, // query가 refetch되고 있는지 여부
     isStale, // query가 stale 상태인지 여부 (staleTime이 지나지 않았는지 여부)
     isSuccess, // query가 성공적으로 fetch되었는지 여부
-    refetch, // query를 refetch하는 함수 
+    refetch, // query를 refetch하는 함수
     remove, // query를 삭제하는 함수
     status, // query의 상태
     fetchStatus, // query의 fetch 상태
